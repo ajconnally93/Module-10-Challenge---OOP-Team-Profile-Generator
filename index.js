@@ -172,3 +172,5 @@ function buildHtml () {
 }
 createTeam();
 }
+
+start();
