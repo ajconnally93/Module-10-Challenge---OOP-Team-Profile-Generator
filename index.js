@@ -1,15 +1,15 @@
 // Inquirer is main package required, will pass answers through in callback functions
-var inquirer = require('inquirer');
+const inquirer = require('inquirer');
 
-var path = require('path');
-var OUTPUT_DIR = path.resolve(__dirname, 'output');
-var outputPath = path.join(OUTPUT_DIR, 'team.html');
+const path = require('path');
+const OUTPUT_DIR = path.resolve(__dirname, 'output');
+const outputPath = path.join(OUTPUT_DIR, 'team.html');
 
-var fs = require('fs');
-var Engineer = require('./lib/Engineer.js');
-var Intern = require('./lib/Intern.js');
-var Manager = require('./lib/Manager.js');
-var getTeam = require('./src/template.js');
+const fs = require('fs');
+const Engineer = require('./lib/Engineer.js');
+const Intern = require('./lib/Intern.js');
+const Manager = require('./lib/Manager.js');
+const getTeam = require('./src/template.js');
 const { Console } = require('console');
 
 teamMembers = [];
@@ -165,4 +165,10 @@ function createManager() {
 
 // console.log("TESTING TESTING TESTING 4 TEST 4");
 
+function buildHtml () {
+    console.log("Team created")
+
+    fs.writeFileSync(outputPath, getTeam(teamMembers), "UTF-8")
+}
+createTeam();
 }
