@@ -1,5 +1,5 @@
 // Inquirer is main package required, will pass answers through in callback functions
-const inquirer = require('inquirer');
+const inquirer = import('inquirer');
 
 const path = require('path');
 const OUTPUT_DIR = path.resolve(__dirname, 'output');
@@ -13,6 +13,22 @@ const getTeam = require('./src/template.js');
 const { Console } = require('console');
 
 teamMembers = [];
+
+
+// STILL GETTING ERROR MESSAGE WHEN INQUIRER PROMPT IS IN GLOBAL SCOPE: TypeError: inquirer.prompt is not a function
+// inquirer.prompt([{
+//     type: "list",
+//     message: "Which employee would you like to add?",
+//     name: "addPrompt",
+//     choices: ["Manager", "Engineer", "Intern", "None"]
+
+//   //each case will run the function to add the specific employee type
+//   }])
+
+
+
+// NOTE: MAYBE NEED TO MAKE INQUIRER PROMPT ASYNC WITH ```AWAIT``` ?
+
 
 
 // start() function will actually be what runs the program. addManager, addEngineer, addIntern, buildHtml will be defined later with the first 3 being inquirer prompts as well
@@ -29,7 +45,9 @@ function start() {
           choices: ["Manager", "Engineer", "Intern", "None"]
 
         //each case will run the function to add the specific employee type
-        }]).then(function (userInput) {
+        }])
+        
+        .then(function (userInput) {
           switch(userInput.addPrompt) {
 
             case "Manager":
@@ -76,7 +94,9 @@ function start() {
             message: "What is the Engineer's GitHub?"
         }
 
-        ]).then(answers => {
+        ])
+        
+        .then(answers => {
         const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
 
         teamMembers.push(engineer);
@@ -114,7 +134,9 @@ function start() {
             message: "What school is the Intern attending?"
         }
 
-        ]).then(answers => {
+        ])
+        
+        .then(answers => {
         const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
 
         teamMembers.push(intern);
@@ -153,7 +175,9 @@ function start() {
             message: "What is the Manager's office #?"
         }
     
-        ]).then(answers => {
+        ])
+        
+        .then(answers => {
         const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
 
         teamMembers.push(manager);
@@ -170,7 +194,7 @@ function start() {
 
         fs.writeFileSync(outputPath, getTeam(teamMembers), "UTF-8")
     }
-    
+
     createTeam();
 }
 
