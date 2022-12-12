@@ -50,127 +50,128 @@ function start() {
 
 // console.log("TESTING TEST 1");
 
-function createEngineer() {
-    inquirer.prompt([
-      {
-        type: "input",
-        name: "engineerName",
-        message: "What is the Engineer's name?"
-      },
+    function createEngineer() {
+        inquirer.prompt([
+        {
+            type: "input",
+            name: "engineerName",
+            message: "What is the Engineer's name?"
+        },
 
-      {
-        type: "input",
-        name: "engineerId",
-        message: "What is the Engineer's employee ID" 
-      },
+        {
+            type: "input",
+            name: "engineerId",
+            message: "What is the Engineer's employee ID" 
+        },
 
-      {
-        type: "input",
-        name: "engineerEmail",
-        message: "What is the Engineer's Email?"
-      },
+        {
+            type: "input",
+            name: "engineerEmail",
+            message: "What is the Engineer's Email?"
+        },
 
-      {
-        type: "input",
-        name: "engineerGithub",
-        message: "What is the Engineer's GitHub?"
-      }
+        {
+            type: "input",
+            name: "engineerGithub",
+            message: "What is the Engineer's GitHub?"
+        }
 
-    ]).then(answers => {
-      const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+        ]).then(answers => {
+        const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
 
-      teamMembers.push(engineer);
-      console.log("Engineer created!")
-    //   will rerun the program to add another employee type, no matter which one was previously added
-      createTeam();
-    });
-  }
+        teamMembers.push(engineer);
+        console.log("Engineer created!")
+        //   will rerun the program to add another employee type, no matter which one was previously added
+        createTeam();
+        });
+    }
 
-// console.log("TESTING TEST 2")
+    // console.log("TESTING TEST 2")
 
-function createIntern() {
-    inquirer.prompt([
-      {
-        type: "input",
-        name: "internName",
-        message: "What is the Intern's name?"
-      },
+    function createIntern() {
+        inquirer.prompt([
+        {
+            type: "input",
+            name: "internName",
+            message: "What is the Intern's name?"
+        },
 
-      {
-        type: "input",
-        name: "internId",
-        message: "What is the Intern's employee ID?" 
-      },
+        {
+            type: "input",
+            name: "internId",
+            message: "What is the Intern's employee ID?" 
+        },
 
-      {
-        type: "input",
-        name: "internEmail",
-        message: "What is the Intern's Email?"
-      },
+        {
+            type: "input",
+            name: "internEmail",
+            message: "What is the Intern's Email?"
+        },
 
-      {
-        type: "input",
-        name: "internSchool",
-        message: "What school is the Intern attending?"
-      }
+        {
+            type: "input",
+            name: "internSchool",
+            message: "What school is the Intern attending?"
+        }
 
-    ]).then(answers => {
-      const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+        ]).then(answers => {
+        const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
 
-      teamMembers.push(intern);
-      console.log("Intern added!");
+        teamMembers.push(intern);
+        console.log("Intern added!");
 
-      createTeam();
-    });
-  }
+        createTeam();
+        });
+    }
 
-// console.log("TESTING 3")
+    // console.log("TESTING 3")
 
-function createManager() {
-    inquirer.prompt ([
-      
-      {
-        type: "input",
-        name: "managerName",
-        message: "What is the Manager's name?"
-      },
-  
-      {
-        type: "input",
-        name: "managerId",
-        message: "What is the Manager's employee ID?"
-      },
-  
-      {
-        type: "input",
-        name: "managerEmail",
-        message: "What is the Manager's Email?"
-      },
-  
-      {
-        type: "input",
-        name: "managerOfficeNumber",
-        message: "What is the Manager's office #?"
-      }
-  
-    ]).then(answers => {
-      const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
+    function createManager() {
+        inquirer.prompt ([
+        
+        {
+            type: "input",
+            name: "managerName",
+            message: "What is the Manager's name?"
+        },
+    
+        {
+            type: "input",
+            name: "managerId",
+            message: "What is the Manager's employee ID?"
+        },
+    
+        {
+            type: "input",
+            name: "managerEmail",
+            message: "What is the Manager's Email?"
+        },
+    
+        {
+            type: "input",
+            name: "managerOfficeNumber",
+            message: "What is the Manager's office #?"
+        }
+    
+        ]).then(answers => {
+        const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
 
-      teamMembers.push(manager);
-      console.log("Manager created!")
+        teamMembers.push(manager);
+        console.log("Manager created!")
 
-      createTeam();
-    });
-  }
+        createTeam();
+        });
+    }
 
-// console.log("TESTING TESTING TESTING 4 TEST 4");
+    // console.log("TESTING TESTING TESTING 4 TEST 4");
 
-function buildHtml () {
-    console.log("Team created")
+    function buildHtml () {
+        console.log("Team created")
 
-    fs.writeFileSync(outputPath, getTeam(teamMembers), "UTF-8")
-}
-createTeam();
+        fs.writeFileSync(outputPath, getTeam(teamMembers), "UTF-8")
+    }
+    
+    createTeam();
 }
 
 start();
