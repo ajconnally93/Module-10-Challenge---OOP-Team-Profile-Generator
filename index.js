@@ -1,5 +1,5 @@
 // Inquirer is main package required, will pass answers through in callback functions
-const inquirer = import('inquirer');
+const inquirer = require('inquirer');
 
 const path = require('path');
 const OUTPUT_DIR = path.resolve(__dirname, 'output');
@@ -28,6 +28,8 @@ teamMembers = [];
 
 
 // NOTE: MAYBE NEED TO MAKE INQUIRER PROMPT ASYNC WITH ```AWAIT``` ?
+
+// FIXED BY CHANGING INQUIRER PACKAGE DEPENDENCY TO 8.2.4 IN PACKAGE.JSON
 
 
 
