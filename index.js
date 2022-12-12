@@ -63,6 +63,9 @@ function start() {
             case "Intern":
               createIntern();
               break;
+
+            case "None":
+                break;
     
             default:
               buildHtml();
