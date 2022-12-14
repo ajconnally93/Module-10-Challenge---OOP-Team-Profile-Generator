@@ -65,6 +65,7 @@ function start() {
               break;
 
             case "None":
+                console.log("Program ended.")
                 break;
     
             default:
