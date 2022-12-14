@@ -21,6 +21,7 @@
   "homepage": "https://github.com/ajconnally93/Module-10-Challenge---OOP-Team-Profile-Generator#readme",
   "dependencies": {
     "inquirer": "^8.2.4",
+    "jest": "^29.3.1",
     "node-fetch": "^2.6.7"
   }
 }
