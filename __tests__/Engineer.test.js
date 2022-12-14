@@ -1,6 +1,6 @@
 const Engineer = require("../lib/Engineer");
 
-test("Tests Engineer's github to be accurate", () => {
+test("Tests if we can create a github to pass through", () => {
     const testGithub = "ajconnally93";
     const employeeInst = new Engineer("Andrew", 2, "ajconnally93@gmail.com", testGithub);
     expect(employeeInst.github).toBe(testGithub);
