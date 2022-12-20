@@ -14,11 +14,16 @@ test("Tests if we can create a school to pass through", () => {
 
 // tests school() and role() functions
 
+// JUST THIS ONE IS FAILING
 test("Testing school() function", () => {
     const testSchool = "Alabama";
     const employeeInst = new Intern("Andrew", 2, "ajconnally93@gmail.com", testSchool);
-    expect(employeeInst.school()).toBe(testSchool);
+    expect(employeeInst.getSchool()).toBe(testSchool);
 });
+
+
+
+
 
 test("Testing role() function", () => {
     const returnVal = "Intern";

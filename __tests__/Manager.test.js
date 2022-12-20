@@ -12,11 +12,17 @@ test("Tests if we can create an office number", () => {
 
 // tests officeNumber() and role() functions
 
+// JUST THIS ONE IS FAILING
 test("Testing officeNumber() function", () => {
     const testOfficeNumber = 2;
     const employeeInst = new Manager("Andrew", 2, "ajconnally93@gmail.com", testOfficeNumber);
-    expect(employeeInst.officeNumber()).toBe(testOfficeNumber);
+    expect(employeeInst.getOfficeNumber()).toBe(testOfficeNumber);
 });
+
+
+
+
+
 
 test("Testing role() function", () => {
     const returnVal = "Manager";

@@ -30,23 +30,28 @@ test("Testing Email", () => {
 
 // Tests all functions
 
+// THESE 3 ARE FAILING
 test("Gets name through name() function", () => {
     const testName = "Andrew";
     const employeeInst = new Employee(testName);
-    expect(employeeInst.name()).toBe(testName);
+    expect(employeeInst.getName()).toBe(testName);
 })
 
 test("Tests ID through id() function", () => {
     const testID = 2;
     const employeeInst = new Employee("Andrew", testID);
-    expect(employeeInst.id()).toBe(testID);
+    expect(employeeInst.getId()).toBe(testID);
 })
 
 test("Tests Email through email() function", () => {
     const testEmail = "ajconnally93@gmail.com";
     const employeeInst = new Employee("Andrew", 2, testEmail);
-    expect(employeeInst.email()).toBe(testEmail);
+    expect(employeeInst.getEmail()).toBe(testEmail);
 })
+
+
+
+
 
 
 // tests employee role by invoking the role() function
