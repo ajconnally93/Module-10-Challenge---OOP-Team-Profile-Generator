@@ -66,6 +66,7 @@ function start() {
 
             case "None":
                 console.log("Program ended.")
+                buildHtml();
                 break;
     
             default:

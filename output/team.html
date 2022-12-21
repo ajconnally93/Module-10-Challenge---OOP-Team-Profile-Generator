@@ -1,112 +1,7 @@
-// Need to create template first to be able to generate HTML within index.js later, and then using answers from an inquirer prompt to help generate the team with callback functions
-
-
-// This will create the team. Cards will easily be able to match the cards in original team.html file thanks to BootStrap, so the page will look smooth and have continuity as the User adds more employees when prompted
-const getTeam = team => {
-
-    // Engineer HTML Template
-    const getEngineer = engineer => {
-
-        // engineer.getName(), .getRole(), .getId(), .getEmail(), .getGithub() are all functions from the lib folder for each separate type of employee constructor in modularized files, all built & extended from the original Employee.js employee constructor
-        return `
-<div class="card employee-card">
-
-    <div class="card-header bg-primary text-white">
-        <h2 class="card-title">${engineer.getName()}</h2>
-        <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>${engineer.role()}</h3>
-    </div>
-
-    <div class="card-body">
-        <ul class="list-group">
-            <li class="list-group-item">ID: ${engineer.getId()}</li>
-            <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-            <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank">${engineer.getGithub()}</a></li>
-        </ul>
-    </div>
-
-</div>`;
-};
-
-    // Manager HTML Template
-    const getManager = manager => {
-
-        // manager.get functions all follow same logic as engineer's as per above comment
-        return `
-<div class="card employee-card">
-
-    <div class="card-header bg-primary text-white">
-        <h2 class="card-title">${manager.getName()}</h2>
-        <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${manager.role()}</h3>
-    </div>
-
-    <div class="card-body">
-        <ul class="list-group">
-            <li class="list-group-item">ID: ${manager.getId()}</li>
-            <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-            <li class="list-group-item">Office number: ${manager.getOfficeNumber()}</li>
-        </ul>
-    </div>
-
-</div>`;
-};
-
-    // Intern HTML Template
-    const getIntern = intern => {
-
-        // intern.get functions all follow same logic as engineer's as per above comment
-        return `
-<div class="card employee-card">
-
-    <div class="card-header bg-primary text-white">
-        <h2 class="card-title">${intern.getName()}</h2>
-        <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${intern.role()}</h3>
-    </div>
-
-    <div class="card-body">
-        <ul class="list-group">
-            <li class="list-group-item">ID: ${intern.getId()}</li>
-            <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
-            <li class="list-group-item">School: ${intern.getSchool()}</li>
-        </ul>
-    </div>
-
-</div>`;
-};
-
-    // will use this empty array to push all generated employees into
-    const pushHtml = [];
-
-    pushHtml.push(team
-        // .filter grabs only the Managers for use in next code block
-        .filter(employee => employee.role() === "Manager")
-        // .map adds all HTML generating Manager employee cards and pushes into a new array which is pushed into HTML
-        .map(manager => getManager(manager))
-    );
-
-    pushHtml.push(team
-        // same logic as above but with Engineers
-        .filter(employee => employee.role() === "Engineer")
-
-        .map(engineer => getEngineer(engineer))
-        .join('')
-    );
-
-    pushHtml.push(team
-        // same logic as above but with Interns
-        .filter(employee => employee.role() === "Intern")
-
-        .map(intern => getIntern(intern))
-        .join('')
-    );
-
-    return pushHtml.join('');
-}
+<!-- ALL OF THIS WILL BE REPLACED WITH NEW CODE AND YOUR NEW TEAM (but will include the default team members) ONCE THE PROGRAM IS RAN AGAIN FROM THE CMD LINE -->
 
 
 
-// exports function to generate the entire HTML page with getTeam, specifically the pushHtml array being populated
-module.exports = team => {
-    return `
 
     <!-- got a lot of help with this, borrowed some code, just wanted to make it look like the mockup. Would be a lot more customizable with regular CSS rather than Bootstrap, but Bootstrap + borrowed code gets the basic mockup functionality done so I can move onto the logic parts of my code -->
 
@@ -224,11 +119,56 @@ module.exports = team => {
 
     <div class="container">
         <div class="row">
-            <div class="row team-area col-12 d-flex justify-content-center">${getTeam(team)}</div>
+            <div class="row team-area col-12 d-flex justify-content-center">
+<div class="card employee-card">
+
+    <div class="card-header bg-primary text-white">
+        <h2 class="card-title">MANAGER NAME</h2>
+        <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>Manager</h3>
+    </div>
+
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item">ID: 6</li>
+            <li class="list-group-item">Email: <a href="mailto:TESTEMAIL@FAKEMANAGEREMAIL.COM">TESTEMAIL@FAKEMANAGEREMAIL.COM</a></li>
+            <li class="list-group-item">Office number: 8</li>
+        </ul>
+    </div>
+
+</div>
+<div class="card employee-card">
+
+    <div class="card-header bg-primary text-white">
+        <h2 class="card-title">AWEFWA</h2>
+        <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>Engineer</h3>
+    </div>
+
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item">ID: AWEFWA</li>
+            <li class="list-group-item">Email: <a href="mailto:AWEFWA">AWEFWA</a></li>
+            <li class="list-group-item">GitHub: <a href="https://github.com/AWEFWA" target="_blank">AWEFWA</a></li>
+        </ul>
+    </div>
+
+</div>
+<div class="card employee-card">
+
+    <div class="card-header bg-primary text-white">
+        <h2 class="card-title">ZXCV</h2>
+        <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>Intern</h3>
+    </div>
+
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item">ID: ZXCV</li>
+            <li class="list-group-item">Email: <a href="mailto:ZXCV">ZXCV</a></li>
+            <li class="list-group-item">School: ZXCVZXCVZ</li>
+        </ul>
+    </div>
+
+</div></div>
         </div>
     </div>
     </body>
     </html>
-`;
-
-};
